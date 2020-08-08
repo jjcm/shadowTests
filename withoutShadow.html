@@ -1,0 +1,31 @@
+<html>
+<body>
+<script type="module">
+  import * as bench from '/bench.js';
+  bench.start();
+
+  // our shadowroot enabled component
+  class WithoutShadow extends HTMLElement {
+    constructor() {
+      super()
+    }
+    connectedCallback(){
+      this.innerHTML = `
+        <h1>Hello, world</h1>
+      `
+    }
+  }
+
+  window.customElements.define('without-shadow', WithoutShadow)
+
+  // let's create 1000 instances of this
+  for(let i = 0; i < 1000; i++){
+    let el = document.createElement('without-shadow')
+    document.body.appendChild(el)
+  }
+
+
+  bench.stop();
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "tachtests",
+  "version": "1.0.0",
+  "description": "Quick comparison of performance of shadowroots",
+  "main": "tach withShadow.html withoutShadow.html",
+  "dependencies": {
+    "tachometer": "^0.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tach withShadow.html withoutShadow.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjcm/shadowTests.git"
+  },
+  "author": "jjcm",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jjcm/shadowTests/issues"
+  },
+  "homepage": "https://github.com/jjcm/shadowTests#readme"
+}

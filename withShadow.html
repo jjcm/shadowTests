@@ -1,0 +1,35 @@
+<html>
+<body>
+<script type="module">
+  import * as bench from '/bench.js';
+  bench.start();
+
+  // our shadowroot enabled component
+  class WithShadow extends HTMLElement {
+    constructor() {
+      super()
+      this.attachShadow({'mode':'open'})
+      this.shadowRoot.innerHTML = `
+        <slot name="test"></slot>
+      `
+    }
+    connectedCallback(){
+      this.innerHTML = `
+        <h1 slot="test">Hello, world</h1>
+      `
+    }
+  }
+
+  window.customElements.define('with-shadow', WithShadow)
+
+  // let's create 1000 instances of this
+  for(let i = 0; i < 1000; i++){
+    let el = document.createElement('with-shadow')
+    document.body.appendChild(el)
+  }
+
+
+  bench.stop();
+</script>
+</body>
+</html>
